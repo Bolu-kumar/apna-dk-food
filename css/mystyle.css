@@ -1,0 +1,17 @@
+
+/* Whatsapp */
+.whatsapp-icon {
+    position: fixed;
+    bottom: 100px; /* Adjust the distance from the bottom as needed */
+    right: 30px; /* Adjust the distance from the right as needed */
+    z-index: 1000; /* Ensures it's on top of other content */
+  }
+  
+  
+  
+  .whatsapp-icon img {
+    display: block; /* Hide the image for accessibility */
+    width: 60px;
+    height: 60px;
+  }
+  

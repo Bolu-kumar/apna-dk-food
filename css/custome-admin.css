@@ -1,0 +1,170 @@
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.order-table th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+    text-align: left;
+}
+
+.order-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+
+/* Override Bootstrap styles */
+.navcontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    /* Example background color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    /* Example width */
+}
+
+.nav-upper-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nav-option h3 {
+    margin-left: 10px;
+    font-size: medium;
+}
+
+.nav-img {
+    width: 30px;
+    /* Example width */
+    height: auto;
+}
+
+
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.order-table th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+    text-align: left;
+}
+
+.order-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Override Bootstrap styles */
+.navcontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    /* Example background color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    /* Example width */
+}
+
+.nav-upper-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nav-option h3 {
+    margin-left: 10px;
+    font-size: medium;
+}
+
+.nav-img {
+    width: 30px;
+    /* Example width */
+    height: auto;
+}
+
+/* messsage display during update, delete from admin */
+/* CSS to center the message container */
+#messageContainer {
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    /* Ensure it appears above other content */
+}
+
+/* navbar design */
+nav a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: 430;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: #000000;
+    /* Change to the desired color */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+section {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+section.active {
+    display: block;
+}

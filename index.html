@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Burger King - Food Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
+
+
+    <style>
+        /* Customize the appearance of the carousel */
+        #miniAdsCarousel {
+            max-height: 100px;
+            /* Adjust as needed */
+        }
+
+        /* Adjust image size to fit carousel */
+        #miniAdsCarousel .carousel-inner .carousel-item img {
+            height: 100%;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-light navbar-light">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">DK Food <span>Tiffin</span></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="delivery.html" class="nav-item nav-link">Delivery</a>
+                    <!-- <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu">
+                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                            <a href="single.html" class="dropdown-item">Blog Detail</a>
+                        </div> -->
+                    <a href="login.html" class="nav-item nav-link">Login</a>
+                    <a href="place-order.html" class="btn custom-btn" href="">Order Now</a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Nav Bar End -->
+
+
+
+
+
+
+    <!-- Carousel Start -->
+    <div class="carousel">
+        <div class="container-fluids">
+            <div class="owl-carousel">
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="img/c1.jpg" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h1>Best <span>Quality</span> Ingredients</h1>
+                        <p>"Enjoy delicious meals made with fresh ingredients."
+                        </p>
+                        <div class="carousel-btn">
+                            <a class="btn custom-btn" href="img/menu.png">Download Menu Card</a>
+                            <a class="btn custom-btn" href="place-order.html">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="img/c2.jpg" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h1>Healthy <span>Tasty</span> Food</h1>
+                        <p>
+                            "Try our tasty tiffin options, perfect for any mealtime."
+                        </p>
+                        <div class="carousel-btn">
+                            <a class="btn custom-btn" href="img/menu.png" download="menu.png">Download Menu Card</a>
+
+                            <a class="btn custom-btn" href="place-order.html">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="carousel-img">
+                        <img src="img/c3.jpg" alt="Image">
+                    </div>
+                    <div class="carousel-text">
+                        <h1>Fastest Order <span>Delivery</span></h1>
+                        <p>
+                            "Quick delivery: Your delicious meal will be with you soon!"
+                        </p>
+                        <div class="carousel-btn">
+                            <a class="btn custom-btn" href="img/menu.png" download="menu.png">Download Menu Card</a>
+                            <a class="btn custom-btn" href="place-order.html">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+
+    <!-- Food Start -->
+    <div class="food bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Food</h2>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <!-- <i class="flaticon-burger"></i> -->
+                        <i class="flaticon-fruits-and-vegetables"></i>
+
+                        <h2>Breakfast</h2>
+                        <ul>
+                            <li>Idli with Sambhar (South)</li>
+                            <li>Aloo Tikki with Chole (West)</li>
+                            <li>Poori with Aloo Sabzi (North)</li>
+                        </ul>
+
+
+
+
+
+                        <a class="btn custom-btn" href="img/menu.png" download="menu.png">Download Menu Card</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <i class="flaticon-vegetable"></i>
+                        <h2>Lunch</h2>
+                        <ul>
+                            <li>Aloo Sabzi & Poori (South)</li>
+                            <li>Vegetable Pulao & Dal (East)</li>
+                            <li>Jeera Rice & Dal Makhani (West)</li>
+                        </ul>
+                        <a class="btn custom-btn" href="img/menu.png" download="menu.png">Download Menu Card</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <i class="flaticon-meat"></i>
+                        <h2>Dinner</h2>
+                        <ul>
+                            <li>Idli with Sambhar (South/East)</li>
+                            <li>Aloo Tikki with Chole (West)</li>
+                            <li>Poori with Aloo Sabzi (North)</li>
+                        </ul>
+                        <a class="btn custom-btn" href="img/menu.png" download="menu.png">Download Menu Card</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Food End -->
+
+
+    <!-- menu section -->
+    <div class="menu bg-light">
+        <div class="container ">
+            <div class="section-header text-center">
+                <h2>Updated Food Menu</h2>
+            </div>
+            <div class="menu-tab">
+                <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#breakfast">Breakfast</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#lunch">Lunch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#dinner">Dinner</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="breakfast" class="container tab-pane active">
+                        <!-- Breakfast menu items will be dynamically generated here -->
+                    </div>
+                    <div id="lunch" class="container tab-pane fade">
+                        <!-- Lunch menu items will be dynamically generated here -->
+                    </div>
+                    <div id="dinner" class="container tab-pane fade">
+                        <!-- Dinner menu items will be dynamically generated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Food section -->
+    <div class="container mt-5" id="foodContainer">
+        <div class="section-header text-center">
+            <h2>Available Food</h2>
+        </div>
+
+        <div class="row" id="foodCards"></div>
+    </div>
+
+
+    <!-- End food section -->
+
+
+
+
+
+
+    <!-- Feature Start -->
+    <div class="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-header">
+                        <h2>Our Key Features</h2>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-img">
+                            <div class="row">
+                                <div class="col-6">
+                                    <img src="img/feature-1.jpg" alt="Image">
+                                </div>
+                                <div class="col-6">
+                                    <img src="img/feature-2.jpg" alt="Image">
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-6">
+                                    <img src="img/feature-3.jpg" alt="Image">
+                                </div>
+                                <div class="col-6">
+                                    <img src="img/feature-4.jpg" alt="Image">
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn custom-btn mt-4" href="place-order.html">Order Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" style="margin-left: 70px;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="feature-item mb-4">
+                                <i class="flaticon-cooking"></i>
+                                <h3>Fresh Ingredients</h3>
+                                <p>
+                                    <li> We use only the freshest and finest ingredients sourced from local farmers and
+                                        suppliers</li><br>
+                                    <li>
+                                        We provide delicious, fresh meals for your enjoyment and satisfaction. </li>
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 mt-4">
+                            <div class="feature-item">
+                                <i class='fas fa-shipping-fast'></i>
+
+                                <h3>Fast Delivery</h3>
+                                <li>
+                                    Get your food quickly with our speedy delivery service, so you can enjoy your meal
+                                    without waiting too long.
+                                </li> <br>
+                                <li>
+                                    Paying in advance makes your food come faster compared to paying with cash upon
+                                    delivery.
+
+
+                                </li>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Testimonial Start -->
+
+    <div class="testimonial">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Partner</h2>
+            </div>
+            <div class="owl-carousel testimonials-carousel">
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-1.jpg" alt="Image">
+                    </div>
+                    <p>
+                        Consistently satisfying, Vell Mess delivers flavors that leave a lasting impression on taste
+                        buds.
+                    </p>
+                    <h2>Vell Mess-</h2>
+                    <h3>1st main ,near basavanagudi circle</h3>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-2.jpg" alt="Image">
+                    </div>
+                    <p>
+                        Exemplary service and mouthwatering dishes define Soorya Mess
+                        exceptional culinary experience.
+                    </p>
+                    <h2> Soorya Mess-</h2>
+                    <h3>Near Paramount Aspire
+                    </h3>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-3.jpg" alt="Image">
+                    </div>
+                    <p>
+                        AMOGH MESS crafts meals that tantalize the senses and leave patrons delighted
+                    </p>
+                    <h2>AMOGH Mess-</h2>
+                    <h3>303, 3rd Cross Road, Lokanayaka </h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Testimonial End -->
+
+
+    <!-- Contact Start -->
+    <div class="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Contact For Any Query</h2>
+            </div>
+            <div class="row align-items-center contact-information">
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Address:</h3>
+                            <p>Basavanagudi Circle, Mysore, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>WhatApp:</h3>
+                            <p>+919350125817</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Us</h3>
+                            <p>dktiffin@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fa fa-share"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Follow Us</h3>
+                            <div class="contact-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row contact-form">
+                <div class="col-md-12">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d266531.2154826302!2d76.43822760694403!3d12.368043324415398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf7a697654ea6f%3A0xfe18c6bc5485e216!2sBasavanagudi%20Circle!5e0!3m2!1sen!2sin!4v1711463689486!5m2!1sen!2sin"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-contact">
+                                <h2>Our Address</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>Basavanagudi Circle, Mysore, India</p>
+                                <p><i class="fa fa-phone-alt"></i>+919350125817</p>
+                                <p><i class="fa fa-envelope"></i>dktiffin@gmail.com</p>
+                                <div class="footer-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-link">
+                                <h2>Quick Links</h2>
+                                <a href="#">Terms of use</a>
+                                <a href="#">Privacy policy</a>
+                                <a href="#">Cookies</a>
+                                <a href="#">Help</a>
+                                <a href="#">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="footer-newsletter">
+                        <h2>Latest</h2>
+                        <p>
+                            Stay informed with our latest updates on all things food ordering! Whether it's new menu
+                            items, special promotions,
+                        </p>
+                        <div class="form">
+                            <input class="form-control" placeholder="Enter Email">
+                            <button class="btn custom-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>Copyright &copy; <a href="#">DK Food Tiffin Services</a>, All Right Reserved.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <div class="whatsapp-icon">
+
+        <a href="https://api.whatsapp.com/send?phone=+919350125817&text=Hi%2C%20I%20want%20to%20order%20food.%20Can%20you%20help%20me%3F"
+            target="_blank">
+            <img src="img/wa.png" alt="WhatsApp Icon">
+        </a>
+    </div>
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLvhQ5Ag0kDvqCVN1ggKmx1ZgBPk_XfYI",
+            authDomain: "diwakar-tiffin-services.firebaseapp.com",
+            databaseURL: "https://diwakar-tiffin-services-default-rtdb.firebaseio.com",
+            projectId: "diwakar-tiffin-services",
+            storageBucket: "diwakar-tiffin-services.appspot.com",
+            messagingSenderId: "901872908984",
+            appId: "1:901872908984:web:3cf42cf05058202a4e524d"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+
+        // Function to fetch food items from Firebase asynchronously and display them as cards
+        async function displayFoodItems() {
+            const foodContainer = document.getElementById('foodCards');
+            const foodItemsRef = database.ref('menu');
+
+            try {
+                const snapshot = await foodItemsRef.once('value');
+                const foodItems = snapshot.val();
+
+                if (!foodItems) {
+                    // Handle case where no data is available
+                    console.log("No food items available");
+                    return;
+                }
+
+                foodContainer.innerHTML = ''; // Clear existing cards
+
+                // Store the fetched data locally
+                localStorage.setItem('foodItems', JSON.stringify(foodItems));
+
+                for (let key in foodItems) {
+                    const foodItem = foodItems[key];
+                    const card = `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="${foodItem.imageUrl}" class="card-img-top" alt="${foodItem.mealName}">
+                        <!-- Inside the card-body div -->
+                        <div class="card-body">
+                            <h4 class="card-title">${foodItem.mealType}</h4>
+                            <p class="card-text">${foodItem.mealName}</p>
+                            <p class="card-text">Quantity: ${foodItem.quantity}</p>
+                            <p class="card-text">₹${foodItem.price}</p>
+                            <!-- Add to Cart and Buy Now buttons -->
+                            <!-- <button class="btn btn-primary mr-2 addToCartBtn" onclick="addToCart('${key}')">Add to Cart</button>  -->
+                            <button class="btn btn-lg w-100 btn-success" onclick="buyNow('${key}')">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+                    foodContainer.innerHTML += card;
+                }
+            } catch (error) {
+                console.error("Error fetching food items:", error.message);
+                // Handle error appropriately
+            }
+        }
+
+        // Call the function to display food items when the page loads
+        displayFoodItems();
+
+        function buyNow(key) {
+            // Add your logic for handling the order here, if needed
+
+            // Redirect to place-order.html
+            window.location.href = 'place-order.html';
+        }
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

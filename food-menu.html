@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h1 class="mb-4">Menu Management</h1>
+        <!-- Add Menu Item Form -->
+        <div class="card mb-4" id="addForm" style="display: none;">
+            <div class="card-header">Add Menu Item</div>
+            <div class="card-body">
+                <form id="menuForm" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="mealType">Meal Type:</label>
+                            <select id="mealType" class="form-control" required>
+                                <option value="breakfast">Breakfast</option>
+                                <option value="lunch">Lunch</option>
+                                <option value="dinner">Dinner</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="mealName">Meal Name:</label>
+                            <input type="text" id="mealName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="availableFood">Available Food:</label>
+                            <input type="text" id="availableFood" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="image">Image:</label>
+                            <input type="file" id="imageFile" class="form-control-file" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Menu Item</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Add Button to Toggle Form -->
+        <button id="toggleFormButton" class="btn btn-primary mb-4">Add Menu Item</button>
+
+        <!-- Display Menu Items -->
+        <h2 class="mb-4">Menu Items</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Meal Category</th>
+                        <th>Item Name</th>
+                        <th>Available Food</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Item Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="menuItemsTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="firebase-auth/firebase.js"></script>
+    <script src="js/foodMenu.js"></script>
+
+</body>
+
+</html>

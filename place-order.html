@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DK Food Tiffin - Order Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Order delicious tiffin from DK Food Tiffin Services">
+    <meta name="keywords" content="order, food, tiffin, DK Food Tiffin Services">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+    <link rel="stylesheet" href="lib/animate/animate.min.css">
+    <link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="lib/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="css/order-form.css">
+
+    <!-- firebase-app config -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light navbar-light">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">DK Food <span>Tiffin</span></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="feature.html" class="nav-item nav-link">Feature</a>
+                    <a href="login.html" class="nav-item nav-link">Login</a>
+                    <a href="order.html" class="btn custom-btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Order Form Start -->
+    <div class="page-header mb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Order Form</h2>
+                </div>
+                <div class="col-12">
+                    <!-- Add any additional navigation links if needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Order Form End -->
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="alert alert-success text-center fixed-bottom" role="alert" style="display: none;">
+            <!-- Create a success alert message -->
+            Your request has been successfully submitted! Our team will contact shortly!
+        </div>
+
+        <!-- Form Section -->
+        <div class="container">
+            <div class="alert alert-info text-center" role="alert">
+                <Span style="font-weight: bold;"> How to place order?</Span> <a
+                    href="https://www.youtube.com/embed/hpY10Sf29_E">Watch video </a>
+            </div>
+        </div>
+
+        <form id="orderForm" class="custom-form">
+            <!-- Select Meal Section -->
+            <div class="form-group">
+                <label class="label-meal-fields" for="mealSelect">Select Meal</label>
+                <select class="form-control" id="mealSelect" required>
+                    <option value="" disabled selected>Select a Meal</option>
+                    <option value="Breakfast">Breakfast Meal</option>
+                    <option value="Lunch">Lunch Meal</option>
+                    <option value="Dinner">Dinner Meal</option>
+                    <!-- Add more meal options if needed -->
+                </select>
+            </div>
+
+            <!-- Available Meal fields Section -->
+            <div id="mealFields" style="display: none;">
+                <label class="normal-label label-fields">Available Meal</label>
+                <div id="mealOptions" class="form-group">
+                    <!-- Options will be dynamically generated based on selection -->
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Quantity Section -->
+            <!-- Quantity Section -->
+            <div class="form-group">
+                <label class="label-meal-fields" for="quantity">Tiffin</label>
+                <select class="form-control" id="quantity" required>
+                    <option value="" disabled selected>Required No. of Tiffin</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+
+            <p class="label-fields" id="totalAmount">Total Amount: ₹0</p>
+            <span class="text-danger"><b>Note:</b><br> Total Amount Calculate Based on Food checked amount multiply by
+                No. of Tiffin</span>
+
+
+
+            <!-- Name, Email, Phone Section -->
+            <div class="form-row mt-2">
+                <!-- Name Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div>
+                <!-- Email Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <!-- Phone Number Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your number" required>
+                </div>
+            </div>
+
+            <!-- Delivery Method Section -->
+            <label class="label-fields">Delivery Method</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="deliveryMethod" id="pickup" value="pickup" required>
+                <label class="form-check-label delivery-method-lable" for="pickup">Pickup</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="deliveryMethod" id="delivery" value="delivery"
+                    required>
+                <label class="form-check-label delivery-method-lable" for="delivery">Delivery</label>
+            </div>
+
+            <!-- Address Section -->
+            <!-- Proper Address Input -->
+            <div class="form-group mt-2 label-fields">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Address" required>
+            </div>
+            <!-- Address Inputs (Pincode, Street Name, Door Number) -->
+            <div class="form-row label-fields">
+                <!-- Pincode Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" placeholder="Pincode" required>
+                </div>
+                <!-- Street Name Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <label for="streetName">Street Name</label>
+                    <input type="text" class="form-control" id="streetName" placeholder="Street Name" required>
+                </div>
+                <!-- Door Number Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <label for="doorNumber">Door No.</label>
+                    <input type="text" class="form-control" id="doorNumber" placeholder="Door No." required>
+                </div>
+            </div>
+
+            <!-- Payment Method Section -->
+            <div class="form-group ">
+                <label class="label-fields">Payment Method</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery"
+                        value="cashOnDelivery" required>
+                    <label class="form-check-label payment-label" for="cashOnDelivery">Cash on Delivery/Pickup</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="creditDebitCard"
+                        value="creditDebitCard" readonly>
+                    <label class="form-check-label payment-label" for="creditDebitCard">Credit/Debit Card</label>
+                </div>
+            </div>
+
+            <!-- QR Code and Instructions Section -->
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <img src="img/all-workshop-price99.png" alt="QR Code" class="qr-code img-fluid border-0" />
+                </div>
+            </div>
+
+            <!-- Place Order Button -->
+            <button type="submit"
+                class="btn btn-success btn-lg full-width-btn mb-4 place-order label-fields w-100">Place
+                Order</button>
+        </form>
+
+
+
+
+    </div>
+
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-contact">
+                                <h2>Our Address</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>Basavanagudi Circle, Mysore, India</p>
+                                <p><i class="fa fa-phone-alt"></i>+919350125817</p>
+                                <p><i class="fa fa-envelope"></i>dktiffin@gmail.com</p>
+                                <div class="footer-social">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-link">
+                                <h2>Quick Links</h2>
+                                <a href="#">Terms of use</a>
+                                <a href="#">Privacy policy</a>
+                                <a href="#">Cookies</a>
+                                <a href="#">Help</a>
+                                <a href="#">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="footer-newsletter">
+                        <h2>Latest</h2>
+                        <p>
+                            Stay informed with our latest updates on all things food ordering! Whether it's new menu
+                            items, special promotions,
+                        </p>
+                        <div class="form">
+                            <input class="form-control" placeholder="Enter Email">
+                            <button class="btn custom-btn">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>Copyright &copy; <a href="#">DK Food Tiffin Services</a>, All Right Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- WhatsApp -->
+    <div class="whatsapp-icon">
+
+        <a href="https://api.whatsapp.com/send?phone=+919350125817&text=Hi%2C%20I%20want%20to%20order%20food.%20Can%20you%20help%20me%3F"
+            target="_blank">
+            <img src="img/wa.png" alt="WhatsApp Icon">
+        </a>
+    </div>
+    <!-- WhatsApp End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+
+
+
+    <!-- Boostrap JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <script src="js/main.js"></script>
+    <script src="firebase-auth/firebase.js"></script>
+    <script src="js/foodOrder.js"></script>
+
+
+</body>
+
+</html>

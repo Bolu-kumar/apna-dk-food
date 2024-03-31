@@ -1,0 +1,33 @@
+
+    .custom-form {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 30px;
+        margin-top: 30px;
+    }
+
+    .label-meal-fields {
+        font-weight: bold;
+    }
+
+    .label-items {
+        font-weight: normal;
+    }
+
+    .label-fields {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .delivery-method-label {
+        font-weight: normal;
+    }
+
+    .payment-label {
+        font-weight: normal;
+    }
+
+    .qr-code {
+        margin-top: 20px;
+        max-width: 100%;
+    }
