@@ -9,9 +9,9 @@ const firebaseConfig = {
     appId: "1:901872908984:web:5eb4319972dbb49b4e524d"
 };
 
-
-
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+
+
+// git config --global user.email "krishikesh780@gmail.com"
+// git config --global user.name "Rishikesh"

@@ -1,5 +1,3 @@
-
-
 // Order Form JavaScript
 
 // Function to fetch food details from Firebase and display based on meal selection

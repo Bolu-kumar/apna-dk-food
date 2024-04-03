@@ -1,13 +1,13 @@
 // Menu data
 const menuData = {
     breakfast: [
-        { name: "Idli with Sambhar", region: "South", price: "₹40.00", image: "img/menu/idli.jpg" },
-        { name: "Aloo Tikki with Chole", region: "West", price: "₹50.00", image: "img/menu/aloo_tikki.jpg" },
-        { name: "Poori with Aloo Sabzi", region: "North", price: "₹50.00", image: "img/menu/poori.jpg" }
+        { name: "3 Idli with Sambhar", region: "South", price: "₹25.00", image: "img/menu/idli.jpg" },
+        { name: "2 Dosa with Sambhar", region: "South", price: "₹30.00", image: "img/menu/aloo_tikki.jpg" },
+        { name: "3 Poori with Aloo Sabzi", region: "North", price: "₹40.00", image: "img/menu/poori.jpg" }
     ],
     lunch: [
         { name: "Aloo Sabzi with Poori", region: "East/South", price: "₹50.00", image: "img/menu/aloo_sabzi.jpg" },
-        { name: "Dal, Rice & Chapati", region: "East", price: "₹60.00", image: "img/menu/jeera_rice.jpg" },
+        { name: "Dal, Rice & 2 Chapati", region: "East", price: "₹60.00", image: "img/menu/jeera_rice.jpg" },
         { name: "Curry Chicken with Rice ", region: "North", price: "₹80.00", image: "img/menu/chicken_korma.jpg" }
     ],
     dinner: [
