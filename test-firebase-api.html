@@ -1,0 +1,55 @@
+< !DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sample Data to Firebase</title>
+    </head>
+
+    <body>
+
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+
+        <script>
+            // Firebase configuration
+            var firebaseConfig = {
+                // apiKey: "AIzaSyAiIT7QmHfRcQnACWSrLdeoWs6k1Wv8c_U",
+                apiKey: AIzaSyA1X6UAakMx4tjhk0GgZIrqKKB3IOt_864,  //secure
+                authDomain: "it-finisher-training-centre.firebaseapp.com",
+                databaseURL: "https://it-finisher-training-centre-default-rtdb.firebaseio.com",
+                projectId: "it-finisher-training-centre",
+                storageBucket: "it-finisher-training-centre.appspot.com",
+                messagingSenderId: "288743415064",
+                appId: "1:288743415064:web:24d1d8fa2f0806c69b526d",
+                measurementId: "G-1Z4K8YX898"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            var database = firebase.database();
+            var ref = database.ref("contactForm");
+
+            // Sample data
+            var sampleData = {
+                name: "John Doe2",
+                phone: "1234567890",
+                message: "This is a sample message2.",
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            };
+
+            // Push the sample data to the database
+            ref.push(sampleData)
+                .then(() => {
+                    console.log("Sample data added to the database successfully!");
+                })
+                .catch((error) => {
+                    console.error("Error adding sample data to the database:", error);
+                });
+        </script>
+
+    </body>
+
+    </html>
