@@ -12,7 +12,7 @@
         content="RKDK Tiffin Tiffin Services | Delicious and Nutritious Meals Delivered to Your Doorstep">
     <meta property="og:description"
         content="Indulge in delicious and nutritious meals from RKDK Tiffin Tiffin Services. We offer a wide range of breakfast, lunch, and dinner options, delivered right to your doorstep. Order now and enjoy convenient and satisfying meals!">
-    <meta property="og:image" content="http:///www.dktiffin.itfinisher.in/img/logo.png">
+    <meta property="og:image" content="http:///www.dktiffin.itfinisher.in/img/rkdk-tiffin-thumnail.png">
     <meta property="og:url" content="https://www.dktiffin.itfinisher.in">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="RKDK Tiffin Tiffin Services">
@@ -375,9 +375,6 @@
     </div>
     <!-- Testimonial End -->
 
-
-
-
     <!-- FAQ star  -->
     <section id="faqs" class="py-2">
         <div class='text-center'>
@@ -393,8 +390,6 @@
         </div>
     </section>
     <!-- FAQ end  -->
-
-
 
     <!-- Contact Start -->
     <div class="contact mt-5" style="margin-top: 100px !important;">
@@ -465,8 +460,6 @@
         </div>
     </div>
     <!-- Contact End -->
-
-
 
     <!-- Footer Start -->
     <div class="footer">
@@ -589,7 +582,6 @@
 
                 for (let key in foodItems) {
                     const foodItem = foodItems[key];
-                    // <p class="card-text">Quantity: ${foodItem.quantity}</p>
                     const card = `
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -599,6 +591,8 @@
                             <h4 class="card-title">${foodItem.mealType}</h4>
                             <p class="card-text">${foodItem.mealName}</p>
                             <p class="card-text">Price: ₹${foodItem.price}</p>
+                            <!-- <p class="card-text">Quantity: ${foodItem.quantity}</p>  -->
+
                             <!-- Add to Cart and Buy Now buttons -->
                             <!-- <button class="btn btn-primary mr-2 addToCartBtn" onclick="addToCart('${key}')">Add to Cart</button>  -->
                             <button class="btn btn-lg w-100 btn-success" onclick="buyNow('${key}')">Order Now</button>
