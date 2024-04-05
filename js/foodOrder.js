@@ -187,6 +187,7 @@ orderForm.addEventListener("submit", (e) => {
         paymentMethod: paymentMethod,
         selectedMeal: selectedMeal,
         mealFields: mealFields,
+        status: "Pending",
         quantity: quantity,
         totalAmount: totalAmount,
         timestamp: isoDateTime // Add current date and time
