@@ -137,7 +137,7 @@ function saveFormData(formData) {
                         // Open payment link for small devices
                         window.location.href = "upi://pay?pa=paytmqr2810050501011ed316lxckwq@paytm&pn=RKDK TIFFIN&am=15&cu=INR&tn=Payment for services";
                     }
-                }, 2000);
+                }, 5000);
 
 
 
