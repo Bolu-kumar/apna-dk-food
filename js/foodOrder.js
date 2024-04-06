@@ -115,15 +115,32 @@ function saveFormData(formData) {
                 console.log('Form data saved successfully!');
                 alert.textContent = 'Order placed successfully!';
                 alert.style.display = "block";
+                // setTimeout(() => {
+                //     alert.style.display = "none";
+                //     orderForm.reset();
+
+                //     //     const phoneNumber = "+919350125817";
+                //     //     const message = "Hi, I have ordered my tiffin. When will it arrive?";
+                //     //     const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+                //     window.location.href = "https://dktiffin.itfinisher.in/";
+                // }, 2000);
+
                 setTimeout(() => {
                     alert.style.display = "none";
                     orderForm.reset();
 
-                    //     const phoneNumber = "+919350125817";
-                    //     const message = "Hi, I have ordered my tiffin. When will it arrive?";
-                    //     const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-                    window.location.href = "https://dktiffin.itfinisher.in/";
-                }, 1000);
+                    // Check if the device is a large device (not a small device)
+                    if (!isSmallDevice()) {
+                        // Redirect to home page for large devices
+                        window.location.href = "https://dktiffin.itfinisher.in/";
+                    } else {
+                        // Open payment link for small devices
+                        window.location.href = "upi://pay?pa=paytmqr2810050501011ed316lxckwq@paytm&pn=RKDK TIFFIN&am=15&cu=INR&tn=Payment for services";
+                    }
+                }, 2000);
+
+
+
             })
             .catch(error => {
                 console.error('Error saving data:', error);
@@ -136,6 +153,15 @@ function saveFormData(formData) {
         alert.style.display = "block";
     });
 }
+
+// Function to check if the device is a small device
+function isSmallDevice() {
+    // Define your criteria for small devices here.
+    // For example, checking screen width less than or equal to a certain threshold.
+    return window.innerWidth <= 768; // Example threshold, adjust as needed
+}
+
+
 
 // Add event listener to form submission
 console.log("Adding event listener to form submission...");
