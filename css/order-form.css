@@ -33,21 +33,5 @@
     }
 
 
-    /* button tobble for mobile or laptop: */
 
-    /* Hide mobile button initially */
-.mobile {
-    display: none;
-}
-
-/* Media query to show/hide buttons based on screen size */
-@media (max-width: 768px) {
-    /* Show mobile button and hide laptop button on smaller screens */
-    .laptop {
-        display: none;
-    }
-
-    .mobile {
-        display: block;
-    }
-}
+    
