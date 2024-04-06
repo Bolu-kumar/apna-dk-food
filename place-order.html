@@ -221,9 +221,26 @@
             </div>
 
             <!-- Place Order Button -->
-            <button type="submit"
-                class="btn btn-success btn-lg full-width-btn mb-4 place-order label-fields w-100">Place
-                Order</button>
+            <!-- <button type="submit"
+                class="btn btn-success btn-lg full-width-btn mb-4 place-order label-fields w-100 laptop">Place
+                Order</button> -->
+
+            <div id="button-container">
+                <!-- Place Order Button for Laptop -->
+                <button type="submit"
+                    class="btn btn-success btn-lg full-width-btn mb-4 place-order label-fields w-100 laptop">Place
+                    Order</button>
+
+                <!-- Pay Delivery Charge Button for Mobile -->
+                <a href="upi://pay?pa=paytmqr2810050501011ed316lxckwq@paytm&pn=RKDK TIFFIN&am=15&cu=INR&tn=Payment for services"
+                    style="text-decoration: none;">
+                    <button type="submit"
+                        class="btn btn-success btn-lg full-width-btn mb-4 place-order label-fields w-100 mobile">Pay
+                        Delivery Charge: ₹15/</button>
+                </a>
+            </div>
+
+
         </form>
 
 
@@ -315,6 +332,29 @@
     <script src="js/foodOrder.js"></script>
 
 
+    <!-- order button  -->
+    <script>
+        // Detect device type and toggle button visibility
+        function toggleButtons() {
+            var screenWidth = window.innerWidth;
+            var buttonContainer = document.getElementById('button-container');
+            var laptopButton = buttonContainer.querySelector('.laptop');
+            var mobileButton = buttonContainer.querySelector('.mobile');
+
+            if (screenWidth <= 768) {
+                laptopButton.style.display = 'none';
+                mobileButton.style.display = 'block';
+            } else {
+                laptopButton.style.display = 'block';
+                mobileButton.style.display = 'none';
+            }
+        }
+
+        // Call the function initially and add event listener for window resize
+        toggleButtons();
+        window.addEventListener('resize', toggleButtons);
+
+    </script>
 </body>
 
 </html>
