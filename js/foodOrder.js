@@ -122,7 +122,7 @@ function saveFormData(formData) {
                     const phoneNumber = "+919350125817";
                     const message = "Hi, I have ordered my tiffin. When will it arrive?";
                     const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-                    // window.location.href = "https://dktiffin.itfinisher.in/";
+                    window.location.href = whatsappURL;
                 }, 5000);
 
 
