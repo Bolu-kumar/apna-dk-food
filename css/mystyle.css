@@ -1,5 +1,18 @@
 
+ /* Customize the appearance of the carousel */
+ #miniAdsCarousel {
+  max-height: 100px;
+  /* Adjust as needed */
+}
+
+/* Adjust image size to fit carousel */
+#miniAdsCarousel .carousel-inner .carousel-item img {
+  height: 100%;
+  width: auto;
+}
+
 /* Whatsapp */
+
 .whatsapp-icon {
     position: fixed;
     bottom: 100px; /* Adjust the distance from the bottom as needed */

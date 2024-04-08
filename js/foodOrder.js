@@ -113,17 +113,17 @@ function saveFormData(formData) {
         database.ref('foodOrder/' + orderId).set(formData)
             .then(() => {
                 console.log('Form data saved successfully!');
-                alert.textContent = 'Order placed successfully!';
+                alert.textContent = '"Your order has been placed successfully! Our team will contact you shortly, and you will receive an email confirmation for your order within 20 mintues."';
                 alert.style.display = "block";
                 setTimeout(() => {
                     alert.style.display = "none";
                     orderForm.reset();
 
-                    //     const phoneNumber = "+919350125817";
-                    //     const message = "Hi, I have ordered my tiffin. When will it arrive?";
-                    //     const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-                    window.location.href = "https://dktiffin.itfinisher.in/";
-                }, 2000);
+                    const phoneNumber = "+919350125817";
+                    const message = "Hi, I have ordered my tiffin. When will it arrive?";
+                    const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+                    // window.location.href = "https://dktiffin.itfinisher.in/";
+                }, 5000);
 
 
 
@@ -198,7 +198,7 @@ orderForm.addEventListener("submit", (e) => {
         status: "Pending",
         quantity: quantity,
         totalAmount: totalAmount,
-        timestamp: isoDateTime // Add current date and time
+        timestamp: isoDateTime // Add current date and time,
 
     };
 
