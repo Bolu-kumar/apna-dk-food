@@ -138,6 +138,8 @@ header {
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 40px 30px 30px 30px;
+    z-index: -99;
+
 }
 
 .main::-webkit-scrollbar-thumb {

@@ -35,12 +35,17 @@ function displayCoupons() {
                 <td>${coupon.couponCode}</td>
                 <td>${coupon.discountPercentage}</td>
                 <td>${coupon.marketingType}</td>
-                <td>
-                    <button class="btn btn-primary" onclick="editCoupon('${key}', '${coupon.mealTypeForCoupon}', '${coupon.couponCode}', ${coupon.discountPercentage}, '${coupon.marketingType}')">Edit</button>
+                <td class="d-flex">
+                    <button class="btn btn-primary mr-2" onclick="editCoupon('${key}', '${coupon.mealTypeForCoupon}', '${coupon.couponCode}', ${coupon.discountPercentage}, '${coupon.marketingType}')">Edit</button>
                     <button class="btn btn-danger" onclick="deleteCoupon('${childSnapshot.key}')">Delete</button>
+
+
+
                     <!--  <button class="btn btn-success" onclick="activateCoupon('${childSnapshot.key}')">Activate</button>
                      <button class="btn btn-warning" onclick="deactivateCoupon('${childSnapshot.key}')">Deactivate</button>  -->
                                 </td>
+
+                                
             `;
             couponList.appendChild(row);
         });
