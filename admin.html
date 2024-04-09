@@ -56,32 +56,32 @@
                 <p id="userName"></p>
                 <div class="nav-upper-options">
                     <div class="nav-option option1">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-                            class="nav-img" alt="dashboard">
+                        <img src="img/checkout.png" class="nav-img" alt="order">
                         <h3>
-                            <a href="#dashboard" onclick="toggleSection('dashboard')">Dashboard</a>
+                            <a href="#order" onclick="toggleSection('order')">Order</a>
                         </h3>
                     </div>
                     <div class="nav-option option3">
-                        <img src="img/single.jpg" class="nav-img" alt="food-menu">
+                        <img src="img/food-menu.png" class="nav-img" alt="food-menu">
                         <a href="#foodmenu" onclick="toggleSection('foodmenu')">Food Menu</a>
                     </div>
                     <div class="nav-option option5">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                            class="nav-img" alt="customer">
+                        <img src="img/promotion.png" class="nav-img" alt="promotion">
                         <h3>
-                            <a href="#customer" onclick="toggleSection('customer')">Customer</a>
+                            <a href="#promotion" onclick="toggleSection('promotion')">Promotion</a>
                         </h3>
                     </div>
-                    <div class="nav-option option6">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-                            class="nav-img" alt="settings">
-                        <a href="#settings" onclick="toggleSection('settings')">Settings</a>
-                    </div>
+
+
                     <div class="nav-option option4">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-                            class="nav-img" alt="marketing">
-                        <a href="#marketing" onclick="toggleSection('marketing')">Marketing</a>
+                        <img src="img/gmail.png" class="nav-img" alt="email">
+                        <a href="#email" onclick="toggleSection('email')">Email</a>
+                    </div>
+
+
+                    <div class="nav-option option6">
+                        <img src="img/setting.png" class="nav-img" alt="settings">
+                        <a href="#settings" onclick="toggleSection('settings')">Settings</a>
                     </div>
                     <div class="nav-option logout" onclick="logout()">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
@@ -102,50 +102,57 @@
                 </div>
             </div>
             <button class="btn btn-lg btn-danger" style="font-size:15px ;" onclick="refreshPage()">Refresh</button>
-            <section id="dashboard" class="active">
-                <div class="box-container bg-primary text-white mt-0">
-                    <h3 class="py-2">Order List</h3>
-                </div>
-                <div class="table-responsive" style="margin-top:20px;">
-                    <table class="order-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Date</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Address</th>
-                                <th>Pincode</th>
-                                <th>Street</th>
-                                <th>Door No</th>
-                                <th>Delivery</th>
-                                <th>Payment</th>
-                                <th>Selected Meal</th>
-                                <th>Meals</th>
-                                <th>Qty</th>
-                                <th>₹Total</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="orderList">
-                        </tbody>
-                    </table>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination" id="pagination">
-                        </ul>
-                    </nav>
-                </div>
-            </section>
-            <section id="customer">
-                <h3 class="py-2 box-container bg-primary text-white mt-0">customer Section</h3>
-                <br>
-                <p>Learn more about us here.</p>
-            </section>
-            <section id="foodmenu">
+
+
+
+
+            <section id="order" class="active" style="padding: 20px; background-color: white;">
+                <h3 class="py-2 box-container bg-primary text-white mt-0" style="margin-bottom: 20px;">Order List
+                </h3>
                 <div class="container">
-                    <h1 class="mb-4 box-container bg-primary text-white mt-0">Food List</h1>
+                    <div class="table-responsive" style="margin-top:20px;">
+                        <table class="order-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Pincode</th>
+                                    <th>Street</th>
+                                    <th>Door No</th>
+                                    <th>Delivery</th>
+                                    <th>Payment</th>
+                                    <th>Selected Meal</th>
+                                    <th>Meals</th>
+                                    <th>Qty</th>
+                                    <th>₹Total</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orderList">
+                            </tbody>
+                        </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination" id="pagination">
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section id="foodmenu" style="padding: 20px; background-color: white;">
+                <h3 class="py-2 box-container bg-primary text-white mt-0" style="margin-bottom: 20px;">Food Menu
+                    Section
+                </h3>
+                <div class="container">
+
                     <!-- Add Menu Item Form -->
                     <div class="card mb-4" id="addForm" style="display: none;">
                         <div class="card-header">Add Menu Item</div>
@@ -189,9 +196,7 @@
                             </form>
                         </div>
                     </div>
-                    <!-- Add Button to Toggle Form -->
-                    <!-- <button id="toggleFormButton" class="btn btn-primary mb-4">Add Menu
-                     Item</button> -->
+
                     <!-- Add Button to Toggle Form -->
                     <button id="toggleFormButton" class="btn btn-primary mb-4" style="float: left;">Add Menu
                         Item</button>
@@ -214,16 +219,135 @@
                     </div>
                 </div>
             </section>
-            <section id="settings">
-                <h3 class="py-2 box-container bg-primary text-white mt-0">Setting Section</h3>
-                <br>
-                <p>Learn more about us here.</p>
+
+
+            <section id="promotion" style="padding: 20px; background-color: white;">
+                <h3 class="py-2 box-container bg-primary text-white mt-0" style="margin-bottom: 20px;">Promotion
+                    Section
+                </h3>
+                <div class="container">
+
+                    <!-- Add Coupon Form -->
+                    <div class="card mb-4" id="addCoupon" style="display: none;">
+                        <div class="card-header">Coupon Code</div>
+                        <div class="card-body">
+                            <form id="couponForm" enctype="multipart/form-data">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="mealTypeForCoupon">Meal Type:</label>
+                                        <select id="mealTypeForCoupon" class="form-control" required>
+                                            <option value="breakfast">Breakfast</option>
+                                            <option value="lunch">Lunch</option>
+                                            <option value="dinner">Dinner</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="couponCode">Coupon Code:</label>
+                                        <input type="text" id="couponCode" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="discountPercentage">Discount %:</label>
+                                        <input type="number" id="discountPercentage" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label for="marketingType">Marketing Type:</label>
+                                        <select id="marketingType" class="form-control" required>
+                                            <option value="whatApp">WhatApp</option>
+                                            <option value="referal">referal</option>
+                                            <option value="facebook">facebook</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Coupon</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Button to Toggle Coupon Form -->
+                    <button id="toggleFormButtonForCoupon" class="btn btn-primary mb-4" style="float: left;">Add
+                        Coupon</button>
+                    <!-- Display Coupon Codes -->
+                    <div class="table-responsive">
+                        <table class="order-table">
+                            <thead>
+                                <tr>
+                                    <th>Food Category</th>
+                                    <th>Coupon Code</th>
+                                    <th>Discount %</th>
+                                    <th>Marketing Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="couponList">
+                                <!-- Each row in the table will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
-            <section id="marketing">
-                <h3 class="py-2 box-container bg-primary text-white mt-0">marketing Section</h3>
-                <br>
-                <p>Learn more about us here.</p>
+
+
+            <section id="email" style="padding: 20px; background-color: white;">
+                <h3 class="py-2 box-container bg-primary text-white mt-0" style="margin-bottom: 20px;">Email
+                    Section
+                </h3>
+
+                <div class="container  email-class">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="orderIdSelect"
+                                        onchange="displayEmailTemplate()" placeholder="Search by Phone or Order ID">
+                                </div>
+                                <div class="col-auto" style="margin-left: -80px;">
+                                    <button class="btn" onclick="searchOrders('searchInput2')">
+                                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                                            class="icn srchicn" alt="search-button"
+                                            style="height: 35px !important; padding-bottom: 5px !important;">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" onclick="copyToClipboard()">Copy Email
+                                Template</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3 bg-white;">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Email Template</h5>
+                                    <div id="emailTemplate" style="text-align: left;">
+                                        <p>Please select an order ID to display the email template.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+
+            <section id="settings" style="padding: 20px; background-color: white;">
+                <h3 class="py-2 box-container bg-primary text-white mt-0" style="margin-bottom: 20px;">Settings
+                    Section
+                </h3>
+                <div class="container">
+
+
+                    <p>Learn more about us here.</p>
+                </div>
+            </section>
+
+
+
+
             <div class="copyright text-center mt-5 fixed">
                 <small>&copy; 2024 Dk Tiffin Services. All rights reserved.</small>
             </div>
@@ -238,6 +362,7 @@
     <script src="firebase-auth/firebase.js"></script>
     <script src="firebase-auth/admin.js"></script>
     <script src="js/adminOrder.js"></script>
+    <script src="js/promotion.js"></script>
     <script>
         let menuicn = document.querySelector(".menuicn");
         let nav = document.querySelector(".navcontainer");

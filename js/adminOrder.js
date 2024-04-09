@@ -1,14 +1,9 @@
 const database = firebase.database();
 const orderList = document.getElementById("orderList");
 
-
-
 const itemsPerPage = 5; // Number of items to display per page
 let currentPage = 1;
 let totalItems = 0;
-
-
-
 
 // Fetch orders with pagination and filtering
 function fetchOrders(searchQuery = "") {
@@ -34,12 +29,13 @@ function fetchOrders(searchQuery = "") {
                 renderOrders(filteredOrders);
                 initPagination(totalItems);
             }
+
         } else {
             displayNoOrdersMessage();
         }
+
     });
 }
-
 
 
 // Function to clear order list
@@ -51,8 +47,6 @@ function clearOrderList() {
 function renderOrders(orders) {
     orders.forEach(renderOrder);
 }
-
-
 
 
 // Function to render an order row 
@@ -105,6 +99,7 @@ function createOrderRow(order) {
     `;
     return row;
 }
+
 
 
 // Function to initialize pagination navigation
@@ -161,7 +156,6 @@ function searchOrders(inputId) {
 
 // Initial fetch of orders
 fetchOrders();
-
 
 
 
@@ -246,7 +240,7 @@ function displayMessage(messageText) {
 }
 
 
-// Food menu start
+// start Food menu 
 
 // Function to add menu item to Firebase
 function addMenuItem(mealType, mealName, availableFood, quantity, price, imageUrl) {
@@ -281,32 +275,41 @@ document.getElementById('menuForm').addEventListener('submit', function (event) 
     }
 });
 
+
 // Display menu items in table format
 const menuItemsRef = database.ref('menu');
 menuItemsRef.on('value', function (snapshot) {
     const menuItems = snapshot.val();
     let tableRowsHTML = '';
+    // let promotionTableRowsHTML = ''; // New variable for promotion menu items
     for (let key in menuItems) {
+        // Generate HTML for main menu table
         tableRowsHTML += `
             <tr id="row-${key}">
-<td>${menuItems[key].mealType}</td>
-<td>${menuItems[key].mealName}</td>
-<td>${menuItems[key].availableFood}</td>
-<td>${menuItems[key].quantity}</td>
-<td>${menuItems[key].price}</td>
-<td><img src="${menuItems[key].imageUrl}" alt="${menuItems[key].mealName}" style="max-width: 100px;"></td>
-<td>
-    <div class="d-flex">
-        <button class="btn btn-primary mr-1" onclick="editMenuItem('${key}', '${menuItems[key].mealType}', '${menuItems[key].mealName}', '${menuItems[key].availableFood}', ${menuItems[key].quantity}, ${menuItems[key].price}, '${menuItems[key].imageUrl}')">Edit</button>
-        <button class="btn btn-danger" onclick="deleteMenuItem('${key}')">Delete</button>
-    </div>
-</td>
-</tr>
+                <td>${menuItems[key].mealType}</td>
+                <td>${menuItems[key].mealName}</td>
+                <td>${menuItems[key].availableFood}</td>
+                <td>${menuItems[key].quantity}</td>
+                <td>${menuItems[key].price}</td>
+                <td><img src="${menuItems[key].imageUrl}" alt="${menuItems[key].mealName}" style="max-width: 100px;"></td>
+                <td>
+                    <div class="d-flex">
+                        <button class="btn btn-primary mr-1" onclick="editMenuItem('${key}', '${menuItems[key].mealType}', '${menuItems[key].mealName}', '${menuItems[key].availableFood}', ${menuItems[key].quantity}, ${menuItems[key].price}, '${menuItems[key].imageUrl}')">Edit</button>
+                        <button class="btn btn-danger" onclick="deleteMenuItem('${key}')">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        `;
 
-            `;
+
     }
+
+    // Set the generated HTML for both tables
     document.getElementById('menuItemsTableBody').innerHTML = tableRowsHTML;
+    // document.getElementById('promotionMenuItemsTableBody').innerHTML = promotionTableRowsHTML;
 });
+
+
 
 // Function to delete menu item
 function deleteMenuItem(key) {
@@ -368,5 +371,98 @@ document.getElementById('toggleFormButton').addEventListener('click', function (
         button.textContent = 'Add Menu Item';
     }
 });
+
+
+// End Food menu 
+
+
+
+
+// Start  Email marketing Function to display email template based on selected order ID
+function displayEmailTemplate() {
+    const selectedOrderID = document.getElementById('orderIdSelect').value;
+    const emailTemplateContainer = document.getElementById('emailTemplate');
+
+    if (!selectedOrderID) {
+        emailTemplateContainer.innerHTML = '<p>Please select an order ID first.</p>';
+        return;
+    }
+
+    // Fetch the selected order details from Firebase
+    const selectedOrderRef = database.ref('foodOrder').child(selectedOrderID);
+
+    selectedOrderRef.once('value', (snapshot) => {
+        const selectedOrder = snapshot.val();
+        if (selectedOrder) {
+            // Call createOrderRow function to generate email content
+            const emailContent = createEmailTemplate(selectedOrder);
+            emailTemplateContainer.innerHTML = emailContent; // Display email template
+        } else {
+            emailTemplateContainer.innerHTML = '<p>Order details not found.</p>';
+        }
+    });
+}
+
+// Sample function to create email template
+function createEmailTemplate(order) {
+    const formattedDateTime = formatTimestamp(order.timestamp);
+
+    return `
+        <div style="font-family: Arial, sans-serif;">
+            <h1 style="color: #4CAF50; text-align: center;"><span style="font-size: 24px;"></span> Order Confirmation</h1>
+            <p><strong>Order ID:</strong> ${order.orderId}</p>
+            <p><strong>Date:</strong> ${formattedDateTime}</p>
+            <p><strong>Name:</strong> ${order.name}</p>
+            <p><strong>Email:</strong> <a href="mailto:${order.email}">${order.email}</a></p>
+            <p><strong>Phone:</strong> ${order.phoneNumber}</p>
+            <p><strong>Address:</strong> ${order.address}</p>
+            <p><strong>Pincode:</strong> ${order.pincode}</p>
+            <p><strong>Street:</strong> ${order.streetName}</p>
+            <p><strong>Door No:</strong> ${order.doorNumber}</p>
+            <p><strong>Delivery Method:</strong> ${order.deliveryMethod}</p>
+            <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+            <p><strong>Selected Meal:</strong> ${order.selectedMeal}</p>
+            <p><strong>Meals:</strong> ${order.mealFields}</p>
+            <p><strong>Quantity:</strong> ${order.quantity}</p>
+            <button style="background-color: #008000; color: white; border: none; padding: 10px 20px; border-radius: 5px; width: 100%; display: block; margin: 0 auto;">
+                <span style="font-size: 18px; text-align: center; display: block;"><strong>Total Payable Amount: ₹${order.totalAmount}</strong></span>
+            </button><br>
+            <p style="font-size: 16px;">Thank you for choosing RKDK Tiffin Services! Our team is working diligently to prepare your meal and ensure a seamless delivery experience.</p>
+            <p style="font-size: 16px;"><strong>To cancel your order Whatsapp: +919350125817</strong></p>
+            <p style="font-size: 16px;">We appreciate your patience.</p>
+            <p style="font-size: 16px;">Thanks and Regards,</p>
+            <p style="font-size: 16px;">RKDK Tiffin Services</p>
+        </div>
+    `;
+}
+
+
+// Function to copy email template to clipboard
+function copyToClipboard() {
+    const emailTemplateContainer = document.getElementById('emailTemplate');
+    const range = document.createRange();
+    range.selectNode(emailTemplateContainer);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+    const copiedMessage = document.createElement('div');
+    copiedMessage.textContent = 'Email template copied to clipboard';
+    copiedMessage.style.position = 'fixed';
+    copiedMessage.style.bottom = '10px';
+    copiedMessage.style.right = '10px';
+    copiedMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    copiedMessage.style.color = 'white';
+    copiedMessage.style.padding = '10px';
+    copiedMessage.style.borderRadius = '5px';
+    copiedMessage.style.zIndex = '9999';
+    document.body.appendChild(copiedMessage);
+    setTimeout(() => {
+        document.body.removeChild(copiedMessage);
+    }, 2000);
+}
+
+
+// End Email marketing Function 
 
 

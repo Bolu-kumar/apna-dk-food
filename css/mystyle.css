@@ -16,7 +16,7 @@
 .whatsapp-icon {
     position: fixed;
     bottom: 100px; /* Adjust the distance from the bottom as needed */
-    right: 30px; /* Adjust the distance from the right as needed */
+    right: 10px; /* Adjust the distance from the right as needed */
     z-index: 1000; /* Ensures it's on top of other content */
   }
   
@@ -141,4 +141,27 @@
   .feature-item ul {
       text-align: left; /* Align text left for mobile devices */
   }
+}
+
+/* email template */
+
+
+/* Email marketing */
+#marketing {
+  padding: 20px;
+}
+
+.email-class {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left-section {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.right-section {
+  flex: 2;
 }

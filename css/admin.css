@@ -221,15 +221,20 @@ header {
 }
 
 .option1 {
-    border-left: 5px solid #010058af;
-    background-color: var(--Border-color);
+    /* border-left: 5px solid #010058af; */
+
+    /* background-color: var(--Border-color); */
+    border-left: 5px solid #fafaff;
+    background-color: coral;
+
     color: white;
     cursor: pointer;
 }
 
 .option1:hover {
-    border-left: 5px solid #010058af;
-    background-color: var(--Border-color);
+    border-left: 5px solid #fafaff;
+    /* background-color: var(--Border-color); */
+    background-color: coral;
 }
 
 .box {
