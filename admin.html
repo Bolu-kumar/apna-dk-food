@@ -375,14 +375,14 @@
 
 
 
-        // Check if the screen width is less than or equal to 768px (standard tablet/mobile device width)
-        if (window.innerWidth <= 768) {
-            let navs = document.querySelector(".nav-upper-options")
-            // Add the click event listener only for mobile devices
-            navs.addEventListener("click", () => {
-                nav.classList.toggle("navclose");
-            });
-        }
+        let navs = document.querySelector(".nav-upper-options")
+        // Add the click event listener only for mobile devices
+        navs.addEventListener("click", () => {
+            nav.classList.toggle("navclose");
+        });
+
+
+
 
 
 
