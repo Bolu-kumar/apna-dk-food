@@ -363,11 +363,18 @@
     <script src="firebase-auth/admin.js"></script>
     <script src="js/adminOrder.js"></script>
     <script src="js/promotion.js"></script>
+
+    <!-- toggle for admin and admin-nav -->
     <script>
         let menuicn = document.querySelector(".menuicn");
         let nav = document.querySelector(".navcontainer");
+        let navs = document.querySelector(".nav-upper-options")
 
         menuicn.addEventListener("click", () => {
+            nav.classList.toggle("navclose");
+        })
+
+        navs.addEventListener("click", () => {
             nav.classList.toggle("navclose");
         })
 
