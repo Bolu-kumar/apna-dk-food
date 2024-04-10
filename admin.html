@@ -92,21 +92,61 @@
             </nav>
         </div>
         <div class="main">
-            <div class="searchbar2">
-                <input type="text" class="form-control" id="searchInput2" placeholder="Search by Phone or Order ID">
-                <div class="searchbtn">
-                    <button class="btn" onclick="searchOrders('searchInput2')">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                            class="icn srchicn" alt="search-button">
-                    </button>
-                </div>
-            </div>
+
+
             <button class="btn btn-lg btn-danger" style="font-size:15px ;" onclick="refreshPage()">Refresh</button>
 
 
-
-
             <section id="order" class="active" style="padding: 20px; background-color: white;">
+
+                <div class="searchbar2">
+                    <input type="text" class="form-control" id="searchInput2" placeholder="Search by Phone or Order ID">
+                    <div class="searchbtn">
+                        <button class="btn" onclick="searchOrders('searchInput2')">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                                class="icn srchicn" alt="search-button">
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="box-container">
+                    <div class="box box1">
+                        <div class="text">
+                            <h2 class="topic-heading"><i class="fas fa-shopping-cart"></i><span id="totalOrders"></span>
+                            </h2>
+                            <h2 class="topic">Total Order</h2>
+                        </div>
+                    </div>
+
+                    <div class="box box2">
+                        <div class="text">
+                            <h2 class="topic-heading"><i class="far fa-calendar-check"></i><span
+                                    id="todayTotalOrders"></span></h2>
+                            <h2 class="topic">Today Orders</h2>
+                        </div>
+                    </div>
+
+                    <div class="box box3">
+                        <div class="text">
+                            <h2 class="topic-heading"><i class="fas fa-truck"></i><span
+                                    id="prepaidDeliveryOrders">...</span></h2>
+                            <h2 class="topic">Prepaid Delivery</h2>
+                        </div>
+                    </div>
+
+                    <div class="box box4">
+                        <div class="text">
+                            <h2 class="topic-heading"><i class="far fa-calendar-alt"></i><span
+                                    id="scheduledOrders">...</span></h2>
+                            <h2 class="topic">Scheduled Orders</h2>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
                 <h3 class="py-2 box-container bg-primary text-white mt-0" style="margin-bottom: 20px;">Order List
                 </h3>
                 <div class="container">
@@ -362,6 +402,8 @@
     <script src="firebase-auth/firebase.js"></script>
     <script src="firebase-auth/admin.js"></script>
     <script src="js/adminOrder.js"></script>
+    <script src="js/dashboard.js"></script>
+
     <script src="js/promotion.js"></script>
 
     <!-- toggle for admin and admin-nav -->
@@ -380,8 +422,6 @@
         navs.addEventListener("click", () => {
             nav.classList.toggle("navclose");
         });
-
-
 
 
 

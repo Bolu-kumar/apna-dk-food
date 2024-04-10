@@ -160,7 +160,7 @@ header {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 0px;
 }
 
 .nav {
@@ -239,41 +239,43 @@ header {
     background-color: coral;
 }
 
+
 .box {
-    height: 130px;
-    width: 230px;
+    width: 100%;
+    max-width: 200px; /* Adjust max-width as needed */
     border-radius: 20px;
     box-shadow: 3px 3px 10px rgba(0, 30, 87, 0.751);
-    padding: 20px;
+    padding: 10px; /* Adjust padding as needed */
     display: flex;
     align-items: center;
     justify-content: space-around;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    margin: 10px; /* Add margin between boxes */
+}
+
+/* Media query for screens smaller than 768px (typical mobile devices) */
+@media only screen and (max-width: 768px) {
+    .box {
+        max-width: 100%; /* Full width on mobile devices */
+        padding: 5px; /* Adjust padding for smaller screens */
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
 }
 
 .box:hover {
     transform: scale(1.08);
 }
 
-.box:nth-child(1) {
-    background-color: var(--one-use-color);
+/* Apply background colors based on nth-child */
+.box:nth-child(odd) {
+    /* background-color: var(--one-use-color); */
+    background-color:rgb(41, 10, 245);
+
 }
 
-.box:nth-child(2) {
-    background-color: var(--two-use-color);
-}
-
-.box:nth-child(3) {
-    background-color: var(--one-use-color);
-}
-
-.box:nth-child(4) {
-    background-color: var(--two-use-color);
-}
-
-.box img {
-    height: 50px;
+.box:nth-child(even) {
+    background-color:rgb(41, 10, 245);
 }
 
 .box .text {
@@ -290,6 +292,7 @@ header {
     font-size: 30px;
     letter-spacing: 3px;
 }
+
 
 .report-container {
     min-height: 300px;
