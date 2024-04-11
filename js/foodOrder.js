@@ -103,7 +103,7 @@ function generateUniqueOrderId() {
     });
 }
 
-// Function to save form data to Firebase
+
 function saveFormData(formData) {
     console.log("Saving form data to Firebase...");
     generateUniqueOrderId().then(orderId => {
@@ -113,22 +113,24 @@ function saveFormData(formData) {
         database.ref('foodOrder/' + orderId).set(formData)
             .then(() => {
                 console.log('Form data saved successfully!');
-                alert.textContent = '"Your order has been placed successfully! Our team will contact you shortly, and you will receive an email confirmation for your order within 20 mintues."';
-                alert.style.display = "block";
+                // Set the user's name and order ID in the modal
+                document.getElementById('userName').textContent = formData.name;
+                // Example usage
+                const deliveryPaidStatus = document.getElementById('deliveyPaidstatus');
+                deliveryPaidStatus.textContent = toProperCase(formData.deliveryChargePaid);
+
+                document.getElementById('invoiceNumber').textContent = orderId;
+
+                $('#orderConfirmationModal').modal('show'); // Trigger the modal
                 setTimeout(() => {
-                    alert.style.display = "none";
+                    $('#orderConfirmationModal').modal('hide'); // Close the modal after 5 seconds
                     orderForm.reset();
 
-                    const phoneNumber = "+919350125817";
-                    const message = "Hi, I have ordered my tiffin. When will it arrive?";
-                    const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-                    window.location.href = whatsappURL;
-                }, 5000);
-
-
-
-
-
+                    // const phoneNumber = "+919350125817";
+                    // const message = "Hi, I have ordered my tiffin. When will it arrive?";
+                    // const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+                    window.location.href = 'https://dktiffin.itfinisher.in/';
+                }, 60000);
             })
             .catch(error => {
                 console.error('Error saving data:', error);
@@ -142,7 +144,48 @@ function saveFormData(formData) {
     });
 }
 
+function toProperCase(str) {
+    return str.toLowerCase().replace(/\b\w/g, function (char) {
+        return char.toUpperCase();
+    });
+}
 
+// Function to display current date and time in Indian time zone on order confirmation
+function displayDateTime() {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'Asia/Kolkata' };
+    const currentDateTime = new Date().toLocaleString('en-IN', options);
+    document.getElementById('currentDateTime').textContent = currentDateTime;
+}
+
+
+// Get the share button element
+const shareButton = document.getElementById('shareButton');
+
+// Add click event listener to the share button
+shareButton.addEventListener('click', function () {
+    // Get the order details
+    const userName = document.getElementById('userName').textContent;
+    const invoiceNumber = document.getElementById('invoiceNumber').textContent;
+    const deliveryChargePaid = document.querySelector('input[name="deliveryChargePaid"]:checked').value;
+
+
+    const message = `Hi Team,\nMy Name: ${userName},\nOrder Id: ${invoiceNumber},\nDelivery Fee Status: ${deliveryChargePaid}\nI have ordered my tiffin.\nWhen will it arrive?\n`;
+
+
+    // Construct the WhatsApp sharing link
+    const whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+
+    // Open the WhatsApp sharing link in a new tab
+    window.open(whatsappURL, '_blank');
+});
+
+
+
+
+// Call the function to display date and time when the modal is shown
+$('#orderConfirmationModal').on('show.bs.modal', function (e) {
+    displayDateTime();
+});
 
 
 // Add event listener to form submission
@@ -160,6 +203,10 @@ orderForm.addEventListener("submit", (e) => {
     const streetName = document.getElementById('streetName').value;
     const doorNumber = document.getElementById('doorNumber').value;
     const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    const deliveryChargePaid = document.querySelector('input[name="deliveryChargePaid"]:checked').value;
+
+    // Get the selected subscription plan
+    const subscriptionPlan = document.querySelector('input[name="subscriptionPlan"]:checked').value;
     const selectedMeal = document.getElementById('mealSelect').value;
     // Get the values of the checked mealFields checkboxes
     const mealFields = Array.from(document.querySelectorAll('#mealOptions input[type="checkbox"]:checked')).map(item => item.id); // Use item.id instead of item.value
@@ -193,6 +240,8 @@ orderForm.addEventListener("submit", (e) => {
         streetName: streetName,
         doorNumber: doorNumber,
         paymentMethod: paymentMethod,
+        subscriptionPlan: subscriptionPlan,
+        deliveryChargePaid: deliveryChargePaid,
         selectedMeal: selectedMeal,
         mealFields: mealFields,
         status: "Pending",

@@ -1,7 +1,7 @@
 const database = firebase.database();
 const orderList = document.getElementById("orderList");
 
-const itemsPerPage = 5; // Number of items to display per page
+const itemsPerPage = 15; // Number of items to display per page
 let currentPage = 1;
 let totalItems = 0;
 
@@ -81,6 +81,9 @@ function createOrderRow(order) {
         <td>${order.mealFields}</td>
         <td>${order.quantity}</td>
         <td>${order.totalAmount}</td>
+        <td>${order.deliveryChargePaid}</td>
+        <td>${order.subscriptionPlan}</td>
+
         
         <td>
             <select class="form-control status-select" id="status_${order.orderId}" style="width: 150px;">
