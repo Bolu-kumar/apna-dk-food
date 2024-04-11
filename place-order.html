@@ -137,7 +137,7 @@
             </div>
         </div>
 
-        <form id="orderForm" class="custom-form">
+        <form id="orderForm" class="custom-form" style="background-color: #ffffff; border: 1px solid;">
             <!-- Select Meal Section -->
             <div class="form-group">
                 <label class="label-meal-fields" for="mealSelect">Select Meal</label>
@@ -182,9 +182,9 @@
             </div>
 
 
-            <p class="label-fields" id="totalAmount">Total Amount: ₹0</p>
-            <span class="text-danger"><b>Note:</b><br> Total Amount Calculate Based on Food checked amount multiply by
-                No. of Tiffin</span>
+            <p class="label-fields text-success py-3" id="totalAmount">Total Amount: ₹0</p>
+            <!-- <span class="text-danger"><b>Note:</b><br> Total Amount Calculate Based on Food checked amount multiply by
+                No. of Tiffin</span> -->
 
 
 
@@ -278,12 +278,8 @@
                         value="twoWeekSubscription">
                     <label class="form-check-label payment-label" for="twoWeekSubscription">2 Week Subscription</label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="subscriptionPlan" id="threeWeekSubscription"
-                        value="threeWeekSubscription">
-                    <label class="form-check-label payment-label" for="threeWeekSubscription">3 Week
-                        Subscription</label>
-                </div>
+
+
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="subscriptionPlan" id="fourWeekSubscription"
                         value="fourWeekSubscription">
@@ -302,7 +298,7 @@
 
             <!-- Delivery Charge Section -->
             <div class="form-group">
-                <label class="label-fields">Have you paid delivery charge?(Download QR code and Pay now)</label>
+                <label class="label-fields">Have you paid delivery charge?</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="deliveryChargePaid" id="deliveryChargeYes"
                         value="yes" required>
@@ -312,6 +308,27 @@
                     <input class="form-check-input" type="radio" name="deliveryChargePaid" id="deliveryChargeNo"
                         value="no" readonly>
                     <label class="form-check-label payment-label" for="deliveryChargeNo">No</label>
+                </div>
+            </div>
+
+            <!-- Math Puzzle -->
+
+            <div class="form-row label-fields">
+                <!-- Pincode Input -->
+                <div class="form-group col-md-4 label-fields">
+                    <!-- <label for="pincode" >Pincode</label> -->
+
+                    <div id="mathProblem">
+                        <span id="problemText"></span>
+                    </div>
+
+                    <label class="mt-2" for="expression"> Evaluate expression and enter in answer box:
+                    </label>
+                    <div id="errorMessage" style="color: red;"></div>
+
+
+                    <input type="text" class="form-control" type="number" id="solution" name="solution"
+                        placeholder="Enter your answer" required>
                 </div>
             </div>
 

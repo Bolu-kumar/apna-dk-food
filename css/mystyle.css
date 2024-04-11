@@ -165,3 +165,28 @@
 .right-section {
   flex: 2;
 }
+
+
+/* math puzzle  style */
+.diagonal-cross {
+  display: inline-block;
+  position: relative;
+  padding: 5px 10px;
+  background-color: black;
+  width: 150px;
+  text-align: center;
+  color: white;
+}
+
+.diagonal-cross::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50px;
+  margin-left: 50px;
+  height: 2px; /* Thickness of the line */
+  background-color: white; /* Color of the line */
+  transform: rotate(-45deg);
+}
+
