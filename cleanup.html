@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Firebase Database</title>
+</head>
+
+<body>
+    <h1>Clean Firebase Database</h1>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate">
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate">
+    <button onclick="cleanDatabase()">Clean Database</button>
+
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-database.js"></script>
+    <script>
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLvhQ5Ag0kDvqCVN1ggKmx1ZgBPk_XfYI",
+            authDomain: "diwakar-tiffin-services.firebaseapp.com",
+            databaseURL: "https://diwakar-tiffin-services-default-rtdb.firebaseio.com",
+            projectId: "diwakar-tiffin-services",
+            storageBucket: "diwakar-tiffin-services.appspot.com",
+            messagingSenderId: "901872908984",
+            appId: "1:901872908984:web:5eb4319972dbb49b4e524d"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+        // // Function to clean database based on selected time duration
+        // function cleanDatabase() {
+        //     const startDate = document.getElementById("startDate").value;
+        //     const endDate = document.getElementById("endDate").value;
+
+        //     console.log("Start Date:", startDate);
+        //     console.log("End Date:", endDate);
+
+        //     if (!startDate || !endDate) {
+        //         alert("Please select both start and end dates.");
+        //         return;
+        //     }
+
+        //     // Convert dates to timestamp format
+        //     const startTimestamp = new Date(startDate).toISOString();
+        //     const endTimestamp = new Date(endDate).toISOString();
+
+        //     console.log("Start Timestamp:", startTimestamp);
+        //     console.log("End Timestamp:", endTimestamp);
+
+        //     // Define the Firebase database reference
+        //     const dbRef = firebase.database().ref('foodOrder');
+
+        //     console.log("Database Reference:", dbRef.toString());
+
+        //     // Query the database for records within the selected time range
+        //     dbRef.orderByChild('timestamp').startAt(startTimestamp).endAt(endTimestamp).once('value')
+        //         .then(snapshot => {
+        //             console.log("Query Snapshot:", snapshot.val());
+
+        //             // Check if there are records in the snapshot
+        //             if (snapshot.exists()) {
+        //                 // Remove each record within the selected time range
+        //                 snapshot.forEach(childSnapshot => {
+        //                     console.log("Removing:", childSnapshot.key);
+        //                     childSnapshot.ref.remove();
+        //                 });
+
+        //                 alert("Database cleaned successfully.");
+        //             } else {
+        //                 console.log("No records found in the specified time range.");
+        //                 alert("No records found in the specified time range.");
+        //             }
+        //         })
+        //         .catch(error => {
+        //             console.error("Error cleaning database:", error);
+        //             alert("An error occurred while cleaning the database.");
+        //         });
+        // }
+
+
+
+        // Function to clean database based on selected time duration
+        function cleanDatabase() {
+            const startDate = document.getElementById("startDate").value;
+            const endDate = document.getElementById("endDate").value;
+
+            console.log("Start Date:", startDate);
+            console.log("End Date:", endDate);
+
+            if (!startDate || !endDate) {
+                alert("Please select both start and end dates.");
+                return;
+            }
+
+            // Ask for confirmation before cleaning the database
+            const confirmed = confirm("Are you sure you want to clean the database?");
+            if (!confirmed) {
+                return; // Exit function if not confirmed
+            }
+
+            // Convert dates to timestamp format
+            const startTimestamp = new Date(startDate).toISOString();
+            const endTimestamp = new Date(endDate).toISOString();
+
+            console.log("Start Timestamp:", startTimestamp);
+            console.log("End Timestamp:", endTimestamp);
+
+            // Define the Firebase database reference
+            const dbRef = firebase.database().ref('foodOrder');
+
+            console.log("Database Reference:", dbRef.toString());
+
+            // Query the database for records within the selected time range
+            dbRef.orderByChild('timestamp').startAt(startTimestamp).endAt(endTimestamp).once('value')
+                .then(snapshot => {
+                    console.log("Query Snapshot:", snapshot.val());
+
+                    // Check if there are records in the snapshot
+                    if (snapshot.exists()) {
+                        // Remove each record within the selected time range
+                        snapshot.forEach(childSnapshot => {
+                            console.log("Removing:", childSnapshot.key);
+                            childSnapshot.ref.remove();
+                        });
+
+                        alert("Database cleaned successfully.");
+                    } else {
+                        console.log("No records found in the specified time range.");
+                        alert("No records found in the specified time range.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error cleaning database:", error);
+                    alert("An error occurred while cleaning the database.");
+                });
+        }
+
+
+    </script>
+</body>
+
+</html>
