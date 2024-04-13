@@ -64,32 +64,72 @@ function cleanDatabase() {
 
 
 // Function to export data to CSV
+
+// async function exportToCsv(filename, headers, rows) {
+//     try {
+//         const fileHandle = await window.showSaveFilePicker({
+//             suggestedName: filename,
+//             types: [{
+//                 description: 'CSV Files',
+//                 accept: {
+//                     'text/csv': ['.csv'],
+//                 },
+//             }],
+//         });
+//         const writableStream = await fileHandle.createWritable();
+
+//         // Write headers to the CSV file
+//         await writableStream.write(headers.join(',') + '\n');
+
+//         // Write data rows to the CSV file
+//         for (const row of rows) {
+//             await writableStream.write(row.join(',') + '\n');
+//         }
+
+//         await writableStream.close();
+//     } catch (err) {
+//         console.error('Error saving file:', err);
+//     }
+// }
+
+
+
 async function exportToCsv(filename, headers, rows) {
     try {
-        const fileHandle = await window.showSaveFilePicker({
-            suggestedName: filename,
-            types: [{
-                description: 'CSV Files',
-                accept: {
-                    'text/csv': ['.csv'],
-                },
-            }],
-        });
-        const writableStream = await fileHandle.createWritable();
+        // Create CSV content
+        const csvContent = [headers.join(','), ...rows.map(row => row.join(','))].join('\n');
 
-        // Write headers to the CSV file
-        await writableStream.write(headers.join(',') + '\n');
-
-        // Write data rows to the CSV file
-        for (const row of rows) {
-            await writableStream.write(row.join(',') + '\n');
+        if ('showSaveFilePicker' in window) {
+            // Use showSaveFilePicker if available
+            const fileHandle = await window.showSaveFilePicker({
+                suggestedName: filename,
+                types: [{
+                    description: 'CSV Files',
+                    accept: {
+                        'text/csv': ['.csv'],
+                    },
+                }],
+            });
+            const writableStream = await fileHandle.createWritable();
+            await writableStream.write(csvContent);
+            await writableStream.close();
+        } else {
+            // Fallback: Create a blob and initiate download
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
-
-        await writableStream.close();
     } catch (err) {
         console.error('Error saving file:', err);
     }
 }
+
+
+
 
 // Fetch data from Firebase and convert to CSV
 document.getElementById("exportButton").addEventListener("click", async function () {
