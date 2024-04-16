@@ -1964,3 +1964,25 @@ a:focus {
 .footer .copyright p a:hover {
     color: #719a0a;
 }
+
+
+
+
+/* Hide the button by default */
+#orderNowBtn {
+    display: none;
+  }
+  
+  /* Show the button only for devices with max-width 767px (typically mobile devices) */
+  @media (max-width: 767px) {
+    #orderNowBtn {
+      width: 100%;
+        display: block;
+        position: fixed;
+        bottom: 0px; /* Adjust this value as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 9999; /* Ensure it's above other content */
+    }
+  }
+  
