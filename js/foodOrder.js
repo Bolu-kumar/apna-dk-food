@@ -105,42 +105,6 @@ function generateUniqueOrderId() {
 
 
 
-// function saveFormData(formData) {
-//     console.log("Saving form data to Firebase...");
-//     generateUniqueOrderId().then(orderId => {
-//         console.log("Generated order ID:", orderId);
-//         formData.orderId = orderId;
-//         console.log("Form data with order ID:", formData);
-//         database.ref('foodOrder/' + orderId).set(formData)
-//             .then(() => {
-//                 console.log('Form data saved successfully!');
-//                 // Set the user's name and order ID in the modal
-//                 document.getElementById('userName').textContent = formData.name;
-//                 // Example usage
-//                 const deliveryPaidStatus = document.getElementById('deliveyPaidstatus');
-//                 deliveryPaidStatus.textContent = toProperCase(formData.deliveryChargePaid);
-
-//                 document.getElementById('invoiceNumber').textContent = orderId;
-
-//                 $('#orderConfirmationModal').modal('show'); // Trigger the modal
-//                 setTimeout(() => {
-//                     $('#orderConfirmationModal').modal('hide'); // Close the modal after 5 seconds
-//                     orderForm.reset();
-
-//                     window.location.href = 'https://dktiffin.itfinisher.in/';
-//                 }, 10000);
-//             })
-//             .catch(error => {
-//                 console.error('Error saving data:', error);
-//                 alert.textContent = 'An error occurred while placing the order. Please try again.';
-//                 alert.style.display = "block";
-//             });
-//     }).catch(error => {
-//         console.error('Error generating order ID:', error);
-//         alert.textContent = 'An error occurred while generating the order ID. Please try again.';
-//         alert.style.display = "block";
-//     });
-// }
 
 
 function saveFormData(formData) {
@@ -154,10 +118,6 @@ function saveFormData(formData) {
                 console.log('Form data saved successfully!');
                 // Set the user's name and order ID in the modal
                 document.getElementById('userName').textContent = formData.name;
-                // Example usage
-                const deliveryPaidStatus = document.getElementById('deliveyPaidstatus');
-                deliveryPaidStatus.textContent = toProperCase(formData.deliveryChargePaid);
-
                 document.getElementById('invoiceNumber').textContent = orderId;
 
                 $('#orderConfirmationModal').modal('show'); // Trigger the modal
@@ -175,15 +135,16 @@ function saveFormData(formData) {
             })
             .catch(error => {
                 console.error('Error saving data:', error);
-                alert.textContent = 'An error occurred while placing the order. Please try again.';
-                alert.style.display = "block";
+                // Display an alert with the specific error message
+                alert('An error occurred while placing the order. Error: ' + error.message);
             });
     }).catch(error => {
         console.error('Error generating order ID:', error);
-        alert.textContent = 'An error occurred while generating the order ID. Please try again.';
-        alert.style.display = "block";
+        // Display an alert with the specific error message
+        alert('An error occurred while generating the order ID. Error: ' + error.message);
     });
 }
+
 
 
 function toProperCase(str) {

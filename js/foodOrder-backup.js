@@ -104,6 +104,9 @@ function generateUniqueOrderId() {
 }
 
 
+
+
+
 function saveFormData(formData) {
     console.log("Saving form data to Firebase...");
     generateUniqueOrderId().then(orderId => {
@@ -115,31 +118,34 @@ function saveFormData(formData) {
                 console.log('Form data saved successfully!');
                 // Set the user's name and order ID in the modal
                 document.getElementById('userName').textContent = formData.name;
-                // Example usage
-                const deliveryPaidStatus = document.getElementById('deliveyPaidstatus');
-                deliveryPaidStatus.textContent = toProperCase(formData.deliveryChargePaid);
-
                 document.getElementById('invoiceNumber').textContent = orderId;
 
                 $('#orderConfirmationModal').modal('show'); // Trigger the modal
+
+                // Reset the form fields after the modal is closed
+                $('#orderConfirmationModal').on('hidden.bs.modal', function () {
+                    orderForm.reset(); // Reset the form fields
+                    window.location.href = 'https://rkdktiffin.in/';
+                });
+
+                // Close the modal after 10 seconds
                 setTimeout(() => {
                     $('#orderConfirmationModal').modal('hide'); // Close the modal after 5 seconds
-                    orderForm.reset();
-
-                    window.location.href = 'https://dktiffin.itfinisher.in/';
-                }, 10000);
+                }, 90000);
             })
             .catch(error => {
                 console.error('Error saving data:', error);
-                alert.textContent = 'An error occurred while placing the order. Please try again.';
-                alert.style.display = "block";
+                // Display an alert with the specific error message
+                alert('An error occurred while placing the order. Error: ' + error.message);
             });
     }).catch(error => {
         console.error('Error generating order ID:', error);
-        alert.textContent = 'An error occurred while generating the order ID. Please try again.';
-        alert.style.display = "block";
+        // Display an alert with the specific error message
+        alert('An error occurred while generating the order ID. Error: ' + error.message);
     });
 }
+
+
 
 function toProperCase(str) {
     return str.toLowerCase().replace(/\b\w/g, function (char) {
@@ -185,14 +191,71 @@ $('#orderConfirmationModal').on('show.bs.modal', function (e) {
 });
 
 
+//.............................Start math puzzle............................................
 
 
-// Add event listener to form submission
-console.log("Adding event listener to form submission...");
-orderForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log("Form submitted...");
+// Function to generate a random math problem
+function generateMathProblem() {
+    const num1 = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+    const num2 = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+    const operator = Math.random() < 0.5 ? '+' : '-'; // Randomly select addition or subtraction
 
+    let problem;
+    let solution;
+
+    if (operator === '+') {
+        problem = `${num1} + ${num2}`;
+        solution = num1 + num2;
+    } else {
+        problem = `${num1} - ${num2}`;
+        solution = num1 - num2;
+    }
+
+    return { problem, solution };
+}
+
+
+// Function to display the math problem
+function displayMathProblem() {
+    const mathProblemElement = document.getElementById('problemText');
+    const { problem, solution } = generateMathProblem();
+
+    // Apply styles to the problem text with diagonal cross
+    mathProblemElement.innerHTML = `<span class="diagonal-cross">${problem} =</span>`;
+    document.getElementById('mathProblem').dataset.solution = solution; // Store the solution as a data attribute
+}
+
+
+// Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault();
+    const solutionInput = document.getElementById('solution');
+    const userSolution = parseInt(solutionInput.value, 10);
+    const correctSolution = parseInt(document.getElementById('mathProblem').dataset.solution, 10);
+    const errorMessageElement = document.getElementById('errorMessage');
+
+    if (userSolution === correctSolution) {
+        // Proceed with form submission if the puzzle is solved
+        submitForm();
+    } else {
+        // Display an error message to the user
+        errorMessageElement.textContent = "Incorrect solution. Please try again.";
+
+        // Clear the solution input field
+        solutionInput.value = '';
+
+        // Display a new math problem
+        displayMathProblem();
+
+        // Prevent form submission if the solution is incorrect
+        return false;
+    }
+}
+
+
+
+// Function to handle actual form submission
+function submitForm() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phoneNumber = document.getElementById('phoneNumber').value;
@@ -215,19 +278,13 @@ orderForm.addEventListener("submit", (e) => {
 
     console.log("Form values:", name, email, phoneNumber, deliveryMethod, address, pincode, streetName, doorNumber, paymentMethod, selectedMeal, mealFields, quantity, totalAmount);
 
-
-
     // Get current date and time
     var currentdate = new Date();
-
     // Adjust for India Standard Time (GMT+5:30)
     currentdate.setHours(currentdate.getHours() + 5);
     currentdate.setMinutes(currentdate.getMinutes() + 30);
-
     // Convert to ISO 8601 format
     var isoDateTime = currentdate.toISOString();
-
-
 
     const formData = {
         name: name,
@@ -247,11 +304,22 @@ orderForm.addEventListener("submit", (e) => {
         quantity: quantity,
         totalAmount: totalAmount,
         timestamp: isoDateTime // Add current date and time,
-
     };
 
     console.log("Form data:", formData);
 
+    // Save the form data
     saveFormData(formData);
+}
+
+// Event listener to display the math problem when the page loads
+window.addEventListener('DOMContentLoaded', function () {
+    displayMathProblem();
 });
+
+// Event listener to handle form submission
+document.getElementById('orderForm').addEventListener('submit', handleSubmit);
+
+
+//......................... End Math puzzle..................................................
 
