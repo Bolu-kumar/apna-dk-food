@@ -165,7 +165,7 @@ function saveFormData(formData) {
                 // Reset the form fields after the modal is closed
                 $('#orderConfirmationModal').on('hidden.bs.modal', function () {
                     orderForm.reset(); // Reset the form fields
-                    window.location.href = 'https://dktiffin.itfinisher.in/';
+                    window.location.href = 'https://rkdktiffin.in/';
                 });
 
                 // Close the modal after 10 seconds
