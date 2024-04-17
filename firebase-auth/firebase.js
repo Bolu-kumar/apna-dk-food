@@ -1,17 +1,12 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBLvhQ5Ag0kDvqCVN1ggKmx1ZgBPk_XfYI",
-    authDomain: "diwakar-tiffin-services.firebaseapp.com",
-    databaseURL: "https://diwakar-tiffin-services-default-rtdb.firebaseio.com",
-    projectId: "diwakar-tiffin-services",
-    storageBucket: "diwakar-tiffin-services.appspot.com",
-    messagingSenderId: "901872908984",
-    appId: "1:901872908984:web:5eb4319972dbb49b4e524d"
+    apiKey: "AIzaSyCmsbPM3u3_u-5NYsyFdZfE9arbd6146OY",
+    authDomain: "rkdktiffinbox.firebaseapp.com",
+    projectId: "rkdktiffinbox",
+    databaseURL: "https://rkdktiffinbox-default-rtdb.firebaseio.com/",
+    storageBucket: "rkdktiffinbox.appspot.com",
+    messagingSenderId: "478058439707",
+    appId: "1:478058439707:web:86c5af98ecf5be2a3d04be",
+    measurementId: "G-ZTBN8JQCM8"
 };
-
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-
-// git config --global user.email "krishikesh780@gmail.com"
-// git config --global user.name "Rishikesh"

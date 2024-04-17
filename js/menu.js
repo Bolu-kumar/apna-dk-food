@@ -1,19 +1,19 @@
 // Menu data
 const menuData = {
     breakfast: [
-        { name: "3 Idli with Sambhar", region: "South", price: "₹25.00", image: "img/menu/idli.jpg" },
-        { name: "2 Dosa with Sambhar", region: "South", price: "₹30.00", image: "img/menu/aloo_tikki.jpg" },
-        { name: "3 Poori with Aloo Sabzi", region: "North", price: "₹40.00", image: "img/menu/poori.jpg" }
+        { name: "Idli with Sambhar", region: "South", price: "₹8.00/piece", image: "img/menu/breakfast1-idli.jpg" },
+        { name: "Dosa with Sambhar", region: "South", price: "₹15.00/piece", image: "img/menu/breakfast2-dosa.jpg" },
+        { name: "Aloo Paratha with Butter", region: "North", price: "₹20.00/piece", image: "img/menu/breakfast3-aloo-paratha.jpg" }
     ],
     lunch: [
-        { name: "Aloo Sabzi with Poori", region: "East/South", price: "₹50.00", image: "img/menu/aloo_sabzi.jpg" },
-        { name: "Dal, Rice & 2 Chapati", region: "East", price: "₹60.00", image: "img/menu/jeera_rice.jpg" },
-        { name: "Curry Chicken with Rice ", region: "North", price: "₹80.00", image: "img/menu/chicken_korma.jpg" }
+        { name: "Rice, Chapati, Daal & Sabji", region: "East/North", price: "₹70.00/plate", image: "img/menu/lunch1.jpg" },
+        { name: "Rice, 2 Chapati, Daal & Sabji", region: "East/North", price: "₹70.00/plate", image: "img/menu/lunch2.jpg" },
+        { name: "Rice, Daal, Sabji, Puri ", region: "North/South", price: "₹80.00/plate", image: "img/menu/lunch3.jpg" }
     ],
     dinner: [
-        { name: "Idli with Sambhar", region: "South/East", price: "₹40.00", image: "img/menu/idli.jpg" },
-        { name: "Aloo Tikki with Chole", region: "West", price: "₹50.00", image: "img/menu/aloo_tikki.jpg" },
-        { name: "Poori with Aloo Sabzi", region: "North", price: "₹50.00", image: "img/menu/poori.jpg" }
+        { name: "Chapati with Sabji", region: "South/East", price: "₹15.00/chapati", image: "img/menu/dinner1.jpg" },
+        { name: "Rice, 2 Chapati, Daal & Sabji", region: "West", price: "₹60.00/plate", image: "img/menu/dinner2.jpg" },
+        { name: "Aloo Paratha with Butter", region: "North", price: "₹20.00/paratha", image: "img/menu/breakfast3-aloo-paratha.jpg" }
     ]
 };
 
