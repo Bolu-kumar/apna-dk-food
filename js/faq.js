@@ -26,6 +26,12 @@ const faqData = [
         question: "How much are the delivery charges?",
         answer: "There is a flat ₹15 delivery charge for all orders."
     },
+    {
+        "question": "How to place an order?",
+        "answer": "To place an order, go to Order Now: <a href='https://rkdktiffin.in/place-order.html'>Click</a>"
+    },
+
+
 
 
 ];

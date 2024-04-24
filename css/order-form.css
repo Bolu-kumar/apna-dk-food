@@ -35,3 +35,66 @@
 
 
     
+    /* Delivery Graphics */
+    
+
+/* Center the images vertically */
+.img-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the horizontal line */
+.line {
+    flex-grow: 1;
+    height: 4px;
+    background-color: #007bff;
+    /* Blue color */
+    margin: 0 5px;
+    border-radius: 2px;
+}
+
+/* Make the images responsive */
+.small-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+    /* Adjust maximum height for consistency */
+}
+
+
+
+/* Style for the container */
+.container {
+    padding: 20px;
+    /* Add padding to the container */
+}
+
+/* Adjustments for mobile devices */
+@media (max-width: 576px) {
+    .small-img {
+        max-width: 100px;
+        /* Double the image size for mobile devices */
+    }
+
+    /* Style for the horizontal line */
+    .line {
+        /* display: none; */
+        flex-grow: 1;
+        height: 4px;
+        width: 40px;
+        margin-left: 15px;
+        background-color: #007bff;
+    }
+
+    .img1 {
+        margin-left: -20px;
+
+    }
+
+    .img2 {
+        margin-left: -10px;
+
+    }
+
+}

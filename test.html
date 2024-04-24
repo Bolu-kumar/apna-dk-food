@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        /* Center the images vertically */
+        .img-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style for the horizontal line */
+        .line {
+            flex-grow: 1;
+            height: 4px;
+            background-color: #007bff;
+            /* Blue color */
+            margin: 0 5px;
+            border-radius: 2px;
+        }
+
+        /* Make the images responsive */
+        .small-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 80px;
+            /* Adjust maximum height for consistency */
+        }
+
+
+
+        /* Style for the container */
+        .container {
+            padding: 20px;
+            /* Add padding to the container */
+        }
+
+        /* Adjustments for mobile devices */
+        @media (max-width: 576px) {
+            .small-img {
+                max-width: 100px;
+                /* Double the image size for mobile devices */
+            }
+
+            /* Style for the horizontal line */
+            .line {
+                /* display: none; */
+                flex-grow: 1;
+                height: 4px;
+                width: 40px;
+                margin-left: 30px;
+                background-color: #007bff;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-2 text-center">
+                <div class="img-container">
+                    <img src="img/delivery-img/7.png" alt="Image 1" class="img-fluid mb-2 small-img rounded-circle">
+                </div>
+            </div>
+            <div class="col-2 text-center">
+                <div class="line"></div>
+            </div>
+            <div class="col-2 text-center">
+                <div class="img-container">
+                    <img src="img/delivery-img/8.png" alt="Image 1" class="img-fluid mb-2 small-img rounded-circle">
+                </div>
+            </div>
+            <div class="col-2 text-center">
+                <div class="line"></div>
+            </div>
+            <div class="col-2 text-center">
+                <div class="img-container">
+                    <img src="img/delivery-img/6.png" alt="Image 1" class="img-fluid mb-2 small-img rounded-circle">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
